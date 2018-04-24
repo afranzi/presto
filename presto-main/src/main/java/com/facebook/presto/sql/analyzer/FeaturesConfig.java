@@ -80,6 +80,7 @@ public class FeaturesConfig
     private boolean pagesIndexEagerCompactionEnabled;
 
     private boolean dictionaryAggregation;
+    private boolean dereferenceExpressionPushDown;
 
     private int re2JDfaStatesLimit = Integer.MAX_VALUE;
     private int re2JDfaRetries = 5;
@@ -666,6 +667,18 @@ public class FeaturesConfig
     public HistogramGroupImplementation getHistogramGroupImplementation()
     {
         return histogramGroupImplementation;
+    }
+
+    public boolean isDereferenceExpressionPushDown()
+    {
+        return dereferenceExpressionPushDown;
+    }
+
+    @Config("optimizer.dereference-expression-pushdown")
+    public FeaturesConfig setDereferenceExpressionPushDown(boolean dereferenceExpressionPushDown)
+    {
+        this.dereferenceExpressionPushDown = dereferenceExpressionPushDown;
+        return this;
     }
 
     public ArrayAggGroupImplementation getArrayAggGroupImplementation()

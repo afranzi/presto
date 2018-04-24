@@ -87,6 +87,7 @@ public final class SystemSessionProperties
     public static final String FORCE_SINGLE_NODE_OUTPUT = "force_single_node_output";
     public static final String FILTER_AND_PROJECT_MIN_OUTPUT_PAGE_SIZE = "filter_and_project_min_output_page_size";
     public static final String FILTER_AND_PROJECT_MIN_OUTPUT_PAGE_ROW_COUNT = "filter_and_project_min_output_page_row_count";
+    public static final String DEREFERENCE_EXPRESSION_PUSHDOWN = "dereference_expression_pushdown";
     public static final String USE_MARK_DISTINCT = "use_mark_distinct";
 
     private final List<PropertyMetadata<?>> sessionProperties;
@@ -391,6 +392,11 @@ public final class SystemSessionProperties
                         featuresConfig.getFilterAndProjectMinOutputPageRowCount(),
                         false),
                 booleanSessionProperty(
+                         DEREFERENCE_EXPRESSION_PUSHDOWN,
+                         "pushdown dereference expression",
+                         featuresConfig.isDereferenceExpressionPushDown(),
+                        false),
+                booleanSessionProperty(
                         USE_MARK_DISTINCT,
                         "Implement DISTINCT aggregations using MarkDistinct",
                         featuresConfig.isUseMarkDistinct(),
@@ -642,6 +648,11 @@ public final class SystemSessionProperties
     public static int getFilterAndProjectMinOutputPageRowCount(Session session)
     {
         return session.getSystemProperty(FILTER_AND_PROJECT_MIN_OUTPUT_PAGE_ROW_COUNT, Integer.class);
+    }
+
+    public static boolean isDereferenceExpressionPushDown(Session session)
+    {
+        return session.getSystemProperty(DEREFERENCE_EXPRESSION_PUSHDOWN, Boolean.class);
     }
 
     public static boolean useMarkDistinct(Session session)
