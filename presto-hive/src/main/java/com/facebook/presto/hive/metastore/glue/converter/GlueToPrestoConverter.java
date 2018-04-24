@@ -124,7 +124,7 @@ public final class GlueToPrestoConverter
                 .setColumns(sd.getColumns().stream()
                         .map(GlueToPrestoConverter::convertColumn)
                         .collect(toList()))
-                .setParameters(gluePartition.getParameters());
+                .setParameters(Optional.ofNullable(gluePartition.getParameters()).orElse(ImmutableMap.of()));
 
         setStorageBuilder(sd, partitionBuilder.getStorageBuilder());
         return partitionBuilder.build();
