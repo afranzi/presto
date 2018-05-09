@@ -67,8 +67,8 @@ import static org.apache.hadoop.hive.serde2.typeinfo.TypeInfoFactory.longTypeInf
 import static org.apache.hadoop.hive.serde2.typeinfo.TypeInfoFactory.shortTypeInfo;
 import static org.apache.hadoop.hive.serde2.typeinfo.TypeInfoFactory.stringTypeInfo;
 import static org.apache.hadoop.hive.serde2.typeinfo.TypeInfoFactory.timestampTypeInfo;
-import static org.apache.hadoop.hive.serde2.typeinfo.TypeInfoUtils.getTypeInfoFromTypeString;
-import static org.apache.hadoop.hive.serde2.typeinfo.TypeInfoUtils.getTypeInfosFromTypeString;
+import static org.apache.hadoop.hive.serde2.sch.TypeInfoUtils.getTypeInfoFromTypeString;
+import static org.apache.hadoop.hive.serde2.sch.TypeInfoUtils.getTypeInfosFromTypeString;
 
 public final class HiveType
 {
