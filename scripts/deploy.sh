@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
-
 # This script will deploy project packages to artifactory.
 # https://confluence.schibsted.io/display/SPTINF/Bash+helpers+methods+available+in+the+Travis+builds
 source /usr/local/share/bash/travis_dependencies.bash
+
+set -euo pipefail
+IFS=$'\n\t'
 
 BASE_PATH=spt/data/sqlaas/presto
 PACKAGE="/tmp/artifacts/presto-server-*.tar.gz"
