@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -xe
+set -e
 
 # This script will deploy project packages to artifactory.
 # https://confluence.schibsted.io/display/SPTINF/Bash+helpers+methods+available+in+the+Travis+builds
